@@ -7,9 +7,7 @@ import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.sql.Timestamp;
-
 /**
  * swagger-ui的配置
  * @author ScienJus
@@ -29,10 +27,8 @@ public class SwaggerConfig {
     @Bean
     public SwaggerSpringMvcPlugin customImplementation() {
         return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
-                .apiInfo(new ApiInfo("Spring RESTful Authorization Demo Api",
-                        null, null, null, null, null)).
-                        //将Timestamp类型全部转为Long类型
-                        directModelSubstitute(Timestamp.class, Long.class);
+                .apiInfo(new ApiInfo("Spring RESTful Authorization Demo Api", null, null, null, null, null)).
+                //将Timestamp类型全部转为Long类型
+                directModelSubstitute(Timestamp.class, Long.class);
     }
-
 }

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  * 获取和删除token的请求地址，在Restful设计中其实就对应着登录和退出登录的资源映射
  * @author ScienJus
@@ -31,7 +30,6 @@ public class TokenController {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private TokenManager tokenManager;
 
@@ -62,5 +60,4 @@ public class TokenController {
         tokenManager.deleteToken(user.getId());
         return new ResponseEntity<>(ResultModel.ok(), HttpStatus.OK);
     }
-
 }
