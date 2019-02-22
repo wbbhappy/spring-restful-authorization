@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.stereotype.Component;
+
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 /**
@@ -22,6 +23,13 @@ public class RedisTokenManager implements TokenManager {
 
     @Autowired
     public void setRedis(RedisTemplate redis) {
+        /*RedisSerializer stringSerializer = new StringRedisSerializer();
+        redis.setKeySerializer(stringSerializer);
+        redis.setValueSerializer(stringSerializer);
+        redis.setHashKeySerializer(stringSerializer);
+        redis.setHashValueSerializer(stringSerializer);
+        this.redis = redis;*/
+
         this.redis = redis;
         //泛型设置成Long后必须更改对应的序列化方案
         redis.setKeySerializer(new JdkSerializationRedisSerializer());
